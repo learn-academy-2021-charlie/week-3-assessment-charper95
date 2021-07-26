@@ -55,6 +55,7 @@
               <Card
                 drawCard={this.drawCard}
                 shuffle={this.shuffle}
+                hand={this.state.hand} // In order for the Card component to call on hand key in state it needs to be assigned to a variable and passed into the Card component call so the Card component can use it as props.
               />
             </>
           )
@@ -77,12 +78,12 @@
             margin: "10px",
             padding: "10px"
           }
-          return(
+          return( // needed to call on the drawCard & shuffle methods by using this.props
             <>
-              <button onClick={}>
+              <button onClick={this.props.drawCard}>
                 Click to Draw a Card
               </button>
-              <button onClick={shuffle}>
+              <button onClick={this.props.shuffle}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={handStyles}>
